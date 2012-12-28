@@ -185,6 +185,15 @@ module Rdio
     end
   end
 
+  desc 'Get a list of all commands'
+  skips_pre
+  command :commands do |c|
+    c.action do |global_options,options,args|
+      rdio_commands = commands.map { |command| command[0].to_s }
+      print "#{rdio_commands.join(' ')}"
+    end
+  end
+
   skips_pre
   desc "Get CLI and application version info"
   command :version, :v do |c|
