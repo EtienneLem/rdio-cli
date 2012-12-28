@@ -154,7 +154,7 @@ module Rdio
   desc 'Open the current track in Rdio player'
   command :browse do |c|
     c.action do |global_options,options,args|
-      protocol = args.first == 'app' ? 'rdio' : 'http'
+      protocol = args.first == 'web' ? 'http' : 'rdio'
       exec "open '#{bridge.current_url protocol}'"
     end
   end
